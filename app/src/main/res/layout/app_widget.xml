@@ -29,37 +29,46 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/widget_txt_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="2"
             android:textColor="#ffffff"
             android:textSize="140sp"
             android:textStyle="bold"
-            android:layout_weight="1"
+            android:textAlignment="center"
 
             />
 
-        <TextView
-            android:id="@+id/widget_txt"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
-            android:textColor="#ffffff" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自强不息"
-            android:textColor="#ffffff" />
+            <TextView
+                android:id="@+id/widget_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="天行健，君子当自强不息"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="end"
         android:orientation="vertical">
@@ -120,6 +129,10 @@
 
             android:textColor="#ffffff"></TextView>
 
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimaryLight"></TextView>
     </LinearLayout>
 
 
