@@ -4,7 +4,7 @@
                     android:minWidth="110dp"
 
                     android:previewImage="@mipmap/ic_launcher"
-                    android:resizeMode="horizontal"
+                    android:resizeMode=""
                     android:updatePeriodMillis="43200000"
                     android:widgetCategory="home_screen|keyguard">
 

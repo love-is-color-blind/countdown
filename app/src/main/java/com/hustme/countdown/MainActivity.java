@@ -12,5 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.sendBroadcast(new Intent(AppWidget.ACTION_AUTO_UPDATE));
+
+        this.onBackPressed();
     }
 }
