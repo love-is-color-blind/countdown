@@ -55,11 +55,23 @@ public class AppWidget extends AppWidgetProvider {
         remoteViews.setTextViewText(R.id.widget_words, info.randomAphorism());
 
 
-        Intent intent = new Intent(ACTION_AUTO_UPDATE);
-        intent.putExtra("code", REQUEST_WORDS);
-        intent.setClass(context.getApplicationContext(), this.getClass());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, REQUEST_WORDS, intent, 0);
-        remoteViews.setOnClickPendingIntent(R.id.widget_words, pendingIntent);
+        // 点击句子
+        {
+            Intent intent = new Intent(ACTION_AUTO_UPDATE);
+            intent.putExtra("code", REQUEST_WORDS);
+            intent.setClass(context.getApplicationContext(), this.getClass());
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, REQUEST_WORDS, intent, 0);
+            remoteViews.setOnClickPendingIntent(R.id.widget_words, pendingIntent);
+        }
+
+        // 点击 剩余天
+        {
+            Intent intent = new Intent();
+            intent.setClass(context.getApplicationContext(), MainActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context,0, intent, 0);
+            remoteViews.setOnClickPendingIntent(R.id.widget_days, pendingIntent);
+        }
+
 
         appWidgetManager.updateAppWidget(componentName, remoteViews);
     }

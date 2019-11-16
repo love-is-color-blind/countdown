@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/widgetBackgroundColor"
-    android:padding="10dp">
+    android:orientation="vertical">
+
 
     <!-- Widget并不支持所有的布局和控件，而仅仅只是支持Android布局和控件的一个子集。
        (01) App Widget支持的布局：
@@ -26,115 +28,72 @@
        　　AdapterViewFlipper -->
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/widget_target_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="考试"
+                android:textColor="#ffffff"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></TextView>
+
+            <TextView
+                android:id="@+id/widget_target_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2016"
+                android:textColor="#ffffff"></TextView>
+
+            <TextView
+                android:id="@+id/widget_target_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-11"
+                android:textColor="#ffffff"></TextView>
+
+            <TextView
+                android:id="@+id/widget_target_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-16"
+                android:textColor="#ffffff"></TextView>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/widget_days"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="0dp"
             android:layout_weight="1"
             android:text="2"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="100sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/widget_words"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="天行健，君子当自强不息"
-                android:textColor="#ffffff" />
-
-
+                android:textColor="#ffffff"
+                android:textSize="28px" />
         </LinearLayout>
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="end"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="15dp"
-            android:layout_height="2dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorPrimaryLight"></TextView>
-
-        <TextView
-            android:id="@+id/widget_target_year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginBottom="3dp"
-            android:text="2016"
-            android:textColor="#ffffff"
-            android:textSize="12sp"></TextView>
-
-        <TextView
-            android:id="@+id/widget_target_month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:text="-11"
-            android:textColor="#ffffff"
-            android:textSize="12sp"></TextView>
-
-        <TextView
-            android:id="@+id/widget_target_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-16"
-            android:textColor="#ffffff"
-            android:textSize="12sp"></TextView>
-
-
-        <TextView
-            android:layout_width="24dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="35dp"
-
-            android:background="@color/colorPrimaryLight"></TextView>
-
-        <TextView
-            android:layout_width="15dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="7dp"
-            android:background="@color/colorPrimaryLight"></TextView>
-
-
-        <TextView
-            android:id="@+id/widget_target_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="7dp"
-            android:layout_weight="1"
-            android:ems="1"
-            android:gravity="center"
-            android:text="考试"
-
-            android:textColor="#ffffff"></TextView>
-
-        <TextView
-            android:layout_width="15dp"
-            android:layout_height="2dp"
-            android:background="@color/colorPrimaryLight"></TextView>
-    </LinearLayout>
 
 
 </LinearLayout>

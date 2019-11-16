@@ -26,11 +26,16 @@
         android:hint="请输入备注" />
 
     <Button
-        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSubmit"
         android:text="确定" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClose"
+        android:text="关闭" />
 
     <TextView
         android:layout_width="wrap_content"

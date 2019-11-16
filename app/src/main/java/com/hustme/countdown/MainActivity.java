@@ -22,14 +22,10 @@ public class MainActivity extends AppCompatActivity {
         TextView tvTitle = findViewById(R.id.edit_title);
         tvDate.setText(info.getTargetDate());
         tvTitle.setText(info.getTargetTitle());
-        this.onBackPressed();
+//        this.onBackPressed();
     }
 
-    private void sendBroadcast() {
-        Intent intent = new Intent(AppWidget.ACTION_AUTO_UPDATE);
-        intent.setClass(getApplicationContext(), AppWidget.class);
-        this.sendBroadcast(intent);
-    }
+
 
     public void onSubmit(View view) {
         ViewInfo info = ViewInfo.getInstance(this);
@@ -43,5 +39,14 @@ public class MainActivity extends AppCompatActivity {
         info.save(tvTitle.getText().toString(), date);
         Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
         this.sendBroadcast();
+    }
+
+    public void onClose(View view) {
+        this.finish();
+    }
+    private void sendBroadcast() {
+        Intent intent = new Intent(AppWidget.ACTION_AUTO_UPDATE);
+        intent.setClass(getApplicationContext(), AppWidget.class);
+        this.sendBroadcast(intent);
     }
 }
