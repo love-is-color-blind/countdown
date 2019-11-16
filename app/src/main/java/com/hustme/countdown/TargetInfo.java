@@ -1,8 +1,11 @@
 package com.hustme.countdown;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,7 +15,7 @@ public class TargetInfo {
 
     private static TargetInfo info;
 
-    private static TargetInfo getInstance(Context context) {
+    public static TargetInfo getInstance(Context context) {
         if (info == null) {
             info = new TargetInfo(context);
 
@@ -48,10 +51,10 @@ public class TargetInfo {
 
     }
 
-    String targetTitle;
-    String targetDate;
+    private String targetTitle;
+    private String targetDate;
 
-    Context context;
+    private Context context;
 
 
     public void save(String title, String date) {
@@ -62,6 +65,8 @@ public class TargetInfo {
         edit.putString("targetDate", targetDate);
         edit.putString("targetTitle", targetTitle);
         edit.commit();
+
+        context.sendBroadcast(new Intent(AppWidget.ACTION_AUTO_UPDATE));
     }
 
     public String getTargetDate() {
@@ -70,5 +75,21 @@ public class TargetInfo {
 
     public String getTargetTitle() {
         return targetTitle;
+    }
+
+    public int calcDays() {
+        String targetDate = getTargetDate();
+        try {
+            Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(targetDate);
+
+            long now = System.currentTimeMillis();
+            long target = parse.getTime();
+
+            return (int) ((target - now) / (1000 * 60 * 60 * 24)) + 1;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 }

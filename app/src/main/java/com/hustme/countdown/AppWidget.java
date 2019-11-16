@@ -41,6 +41,15 @@ public class AppWidget extends AppWidgetProvider {
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
         String str = formatter.format(curDate);
         remoteViews.setTextViewText(R.id.widget_txt, str);
+
+        TargetInfo info = TargetInfo.getInstance(context);
+        remoteViews.setTextViewText(R.id.widget_target_title, info.getTargetTitle());
+        remoteViews.setTextViewText(R.id.widget_target_year, info.getTargetDate().substring(0, 4));
+        remoteViews.setTextViewText(R.id.widget_target_month, info.getTargetDate().substring(4, 7));
+        remoteViews.setTextViewText(R.id.widget_target_date, info.getTargetDate().substring(7, 10));
+
+        remoteViews.setTextViewText(R.id.widget_days, info.calcDays() + "");
+
         appWidgetManager.updateAppWidget(componentName, remoteViews);
     }
 
