@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DatePicker.OnDateChangedListener {
 
     private String mDate = "";
 
@@ -36,16 +36,7 @@ public class MainActivity extends AppCompatActivity {
             Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(mDate);
             Calendar instance = Calendar.getInstance();
             instance.setTime(parse);
-            tvDate.init(instance.get(Calendar.YEAR), instance.get(Calendar.MONTH), instance.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
-                @Override
-                public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    Calendar selectedDate = Calendar.getInstance();
-                    selectedDate.set(Calendar.YEAR, year);
-                    selectedDate.set(Calendar.MONTH, monthOfYear);
-                    selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                    mDate = new SimpleDateFormat("yyyy-MM-dd").format(selectedDate.getTime());
-                }
-            });
+            tvDate.init(instance.get(Calendar.YEAR), instance.get(Calendar.MONTH), instance.get(Calendar.DAY_OF_MONTH), this);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -68,14 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
         this.sendBroadcast();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        }, 750);
-
-
+        finish();
     }
 
 
@@ -83,5 +67,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(AppWidget.ACTION_AUTO_UPDATE);
         intent.setClass(getApplicationContext(), AppWidget.class);
         this.sendBroadcast(intent);
+    }
+
+    @Override
+    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        Calendar selectedDate = Calendar.getInstance();
+        selectedDate.set(Calendar.YEAR, year);
+        selectedDate.set(Calendar.MONTH, monthOfYear);
+        selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        mDate = new SimpleDateFormat("yyyy-MM-dd").format(selectedDate.getTime());
     }
 }
