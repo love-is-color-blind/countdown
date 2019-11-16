@@ -30,13 +30,10 @@
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:onClick="onSubmit"
+
         android:text="确定" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">常见节日</TextView>
 
     <LinearLayout
         android:layout_width="wrap_content"

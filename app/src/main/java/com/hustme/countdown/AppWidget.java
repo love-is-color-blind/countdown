@@ -51,7 +51,10 @@ public class AppWidget extends AppWidgetProvider {
         remoteViews.setTextViewText(R.id.widget_target_year, info.getTargetDate().substring(0, 4));
         remoteViews.setTextViewText(R.id.widget_target_month, info.getTargetDate().substring(4, 7));
         remoteViews.setTextViewText(R.id.widget_target_date, info.getTargetDate().substring(7, 10));
-        remoteViews.setTextViewText(R.id.widget_days, info.calcDays() + "");
+        String days = info.calcDays() + "";
+        float fontSize = days.length() > 2 ? 70 : 100;
+        remoteViews.setFloat(R.id.widget_days, "setTextSize", fontSize);
+        remoteViews.setTextViewText(R.id.widget_days, days);
         remoteViews.setTextViewText(R.id.widget_words, info.randomAphorism());
 
 
@@ -68,7 +71,7 @@ public class AppWidget extends AppWidgetProvider {
         {
             Intent intent = new Intent();
             intent.setClass(context.getApplicationContext(), MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context,0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             remoteViews.setOnClickPendingIntent(R.id.widget_days, pendingIntent);
         }
 

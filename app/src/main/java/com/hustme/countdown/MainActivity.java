@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(mDate);
             Calendar instance = Calendar.getInstance();
             instance.setTime(parse);
-            tvDate.init(instance.get(Calendar.YEAR), instance.get(Calendar.MONTH),instance.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+            tvDate.init(instance.get(Calendar.YEAR), instance.get(Calendar.MONTH), instance.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
                 @Override
                 public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                     Calendar selectedDate = Calendar.getInstance();
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        },750);
+        }, 750);
 
 
     }
