@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/widgetBackgroundColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="22dp"
+    android:paddingBottom="22dp">
 
 
     <!-- Widget并不支持所有的布局和控件，而仅仅只是支持Android布局和控件的一个子集。
@@ -28,45 +29,24 @@
        　　AdapterViewFlipper -->
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#ffffff"
+        android:orientation="vertical">
 
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/widget_target_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#0000FF"
+            android:gravity="center"
+            android:text="考试还剩"
+            android:paddingVertical="4dp"
+            android:textColor="#ffffff"></TextView>
 
-            <TextView
-                android:id="@+id/widget_target_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="考试"
-                android:textColor="#ffffff"></TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"></TextView>
-
-            <TextView
-                android:id="@+id/widget_target_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2016"
-                android:textColor="#ffffff"></TextView>
-
-            <TextView
-                android:id="@+id/widget_target_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-11"
-                android:textColor="#ffffff"></TextView>
-
-            <TextView
-                android:id="@+id/widget_target_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-16"
-                android:textColor="#ffffff"></TextView>
-        </LinearLayout>
 
         <TextView
             android:id="@+id/widget_days"
@@ -76,24 +56,18 @@
             android:layout_weight="1"
             android:text="2"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="100sp"
+            android:textSize="60sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/widget_words"
+            android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="#efefef"
+            android:gravity="center"
+            android:paddingVertical="4dp"
+            android:text="天行健，君子当自强不息" />
 
-            <TextView
-                android:id="@+id/widget_words"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="天行健，君子当自强不息"
-                android:textColor="#ffffff"
-                android:textSize="28px" />
-        </LinearLayout>
-
-
-
+    </LinearLayout>
 </LinearLayout>

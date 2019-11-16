@@ -37,14 +37,23 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
 
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="添加桌面小工具方法：\n双指在桌面向内拉，然后选择小工具--悬浮倒计时" />
+            android:text="添加桌面小工具方法：" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第一步，长按桌面空白处或双指在桌面捏合" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='第二步，选择"小组件"或"小部件"或"添加工具"，找到倒计时' />
+
     </LinearLayout>
 </LinearLayout>

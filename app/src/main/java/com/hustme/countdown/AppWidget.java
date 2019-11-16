@@ -47,15 +47,10 @@ public class AppWidget extends AppWidgetProvider {
 
 
         ViewInfo info = ViewInfo.getInstance(context);
-        remoteViews.setTextViewText(R.id.widget_target_title, info.getTargetTitle());
-        remoteViews.setTextViewText(R.id.widget_target_year, info.getTargetDate().substring(0, 4));
-        remoteViews.setTextViewText(R.id.widget_target_month, info.getTargetDate().substring(4, 7));
-        remoteViews.setTextViewText(R.id.widget_target_date, info.getTargetDate().substring(7, 10));
+        remoteViews.setTextViewText(R.id.widget_target_title,  info.getTargetTitle() + "还剩");
         String days = info.calcDays() + "";
-        float fontSize = days.length() > 2 ? 70 : 100;
-        remoteViews.setFloat(R.id.widget_days, "setTextSize", fontSize);
         remoteViews.setTextViewText(R.id.widget_days, days);
-        remoteViews.setTextViewText(R.id.widget_words, info.randomAphorism());
+        remoteViews.setTextViewText(R.id.widget_words, info.getTargetDate());
 
 
         // 点击句子
