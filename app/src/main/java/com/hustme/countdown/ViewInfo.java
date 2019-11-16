@@ -70,6 +70,7 @@ public class ViewInfo {
         return targetDate;
     }
 
+
     public String getTargetTitle() {
         return targetTitle;
     }
