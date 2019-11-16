@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
 
         sendBroadcast();
 
-        TargetInfo info = TargetInfo.getInstance(this);
+        ViewInfo info = ViewInfo.getInstance(this);
         TextView tvDate = findViewById(R.id.edit_date);
         TextView tvTitle = findViewById(R.id.edit_title);
         tvDate.setText(info.getTargetDate());
         tvTitle.setText(info.getTargetTitle());
-//        this.onBackPressed();
+        this.onBackPressed();
     }
 
     private void sendBroadcast() {
@@ -32,10 +32,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmit(View view) {
-        TargetInfo info = TargetInfo.getInstance(this);
+        ViewInfo info = ViewInfo.getInstance(this);
         TextView tvDate = findViewById(R.id.edit_date);
         TextView tvTitle = findViewById(R.id.edit_title);
-        info.save(tvTitle.getText().toString(), tvDate.getText().toString());
+        String date = tvDate.getText().toString();
+        if(date.length() != 10) {
+            Toast.makeText(this, "日期输入错误", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        info.save(tvTitle.getText().toString(), date);
         Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
         this.sendBroadcast();
     }

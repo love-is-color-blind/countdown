@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorPrimaryLight">#a5e2f7</color>
+
+    <color name="widgetBackgroundColor">#5ecef5</color>
 </resources>

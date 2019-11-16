@@ -1,29 +1,27 @@
 package com.hustme.countdown;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TargetInfo {
+public class ViewInfo {
 
 
-    private static TargetInfo info;
+    private static ViewInfo info;
 
-    public static TargetInfo getInstance(Context context) {
+    public static ViewInfo getInstance(Context context) {
         if (info == null) {
-            info = new TargetInfo(context);
+            info = new ViewInfo(context);
 
         }
         return info;
     }
 
-    private TargetInfo(Context context) {
+    private ViewInfo(Context context) {
         this.context = context;
 
         SharedPreferences preferences = context.getSharedPreferences("TargetInfo", Context.MODE_PRIVATE);
@@ -91,4 +89,27 @@ public class TargetInfo {
 
         return 0;
     }
+
+    /**
+     * 随记一条格言
+     *
+     * @return
+     */
+    public static String randomAphorism() {
+        String[] lines = {
+                "天行健，君子以自强不息",
+                "好好学习，天天向上",
+                "实现自己既定的目标，必须能耐得住寂寞单干",
+                "学如逆水行舟，不进则退",
+                "不以物喜,不以己悲",
+                "人并不是因为美丽才可爱，而是因为可爱才美丽"
+        };
+
+        int len = lines.length;
+        int index = (int) (Math.random() * len);
+
+        return lines[index];
+    }
+
+
 }

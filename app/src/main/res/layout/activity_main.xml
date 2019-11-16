@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="date"
-        android:hint="请输入日期" />
+        android:hint="请输入日期"
+        android:inputType="date" />
 
     <EditText
         android:id="@+id/edit_title"
@@ -31,4 +31,22 @@
         android:layout_height="wrap_content"
         android:onClick="onSubmit"
         android:text="确定" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">常见节日</TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="添加桌面小工具方法：\n双指在桌面向内拉，然后选择小工具--悬浮倒计时" />
+    </LinearLayout>
 </LinearLayout>
