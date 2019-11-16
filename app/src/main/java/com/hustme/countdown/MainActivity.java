@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.sendBroadcast(new Intent(AppWidget.ACTION_AUTO_UPDATE));
+
+        sendBroadcast();
 
         TargetInfo info = TargetInfo.getInstance(this);
         TextView tvDate = findViewById(R.id.edit_date);
@@ -24,11 +25,18 @@ public class MainActivity extends AppCompatActivity {
 //        this.onBackPressed();
     }
 
+    private void sendBroadcast() {
+        Intent intent = new Intent(AppWidget.ACTION_AUTO_UPDATE);
+        intent.setClass(getApplicationContext(), AppWidget.class);
+        this.sendBroadcast(intent);
+    }
+
     public void onSubmit(View view) {
         TargetInfo info = TargetInfo.getInstance(this);
         TextView tvDate = findViewById(R.id.edit_date);
         TextView tvTitle = findViewById(R.id.edit_title);
         info.save(tvTitle.getText().toString(), tvDate.getText().toString());
         Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
+        this.sendBroadcast();
     }
 }

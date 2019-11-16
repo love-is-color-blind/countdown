@@ -66,7 +66,6 @@ public class TargetInfo {
         edit.putString("targetTitle", targetTitle);
         edit.commit();
 
-        context.sendBroadcast(new Intent(AppWidget.ACTION_AUTO_UPDATE));
     }
 
     public String getTargetDate() {
